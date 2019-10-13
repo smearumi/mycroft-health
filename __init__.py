@@ -218,7 +218,7 @@ class HealthSkill(MycroftSkill):
                     .require("Health").require("Report").require("Month"))
     # @intent_handler(IntentBuilder("GenerateIntent").require("Generate")
     #                 .require("Health").require("Report"))
-    def handle_report_intent(self, message):
+    def handle_generate_intent(self, message):
         # month = message.data.get("Month")
         # self.log.error(month)
 
@@ -315,7 +315,7 @@ class HealthSkill(MycroftSkill):
 
         try:
             connection = sqlite3.connect(
-                                    "{0}/mycroft-health-db.db".format(
+                                    "{0}/mycroft-health.db".format(
                                                                 self.home_dir),
                                     detect_types=sqlite3.PARSE_DECLTYPES |
                                     sqlite3.PARSE_COLNAMES)

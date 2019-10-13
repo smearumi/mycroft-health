@@ -300,8 +300,10 @@ class HealthSkill(MycroftSkill):
                 subject="Mycroft Health Report - {0}".format(category.upper()),
                 html_content=content)
 
-        api_key = "SG.yJSmPOSlR8CDxWrEiHtkiw.08p0jt2Isa_F9we0"
-        api_key = "{0}-H22n2_prFhVBLuBxVcSOSiV4EM".format(api_key)
+        # Please provide your own Api key for testing as it's not wise to
+        # expose Api key in public.
+
+        api_key = "<your sendgrid API key>"
 
         try:
             sg = SendGridAPIClient(api_key)

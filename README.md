@@ -1,49 +1,31 @@
-Working on progress...
+# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/heartbeat.svg' card_color='#000000' width='50' height='50' style='vertical-align:bottom'/> Health
+Track your and your family's health related information.
 
-* Blood Pressure
-> track health blood pressure
-Top?
-> 110
-Bottom?
-> 70
-For whom?
-> me
-Confirm?
-> yes
+## About
+You can track health related information of your and your family's and generate the report for current/previous month which will send to your registered email address.
 
-* Diabetes
-> track health suger level 7.6
-Before or after meal?
-> after
-For whom?
-> mother
-Confirm?
-> yes
 
-* Body Temperature
-> track health temperature 99
-For whom?
-> wife
-Confirm?
-> yes
+## Examples
+* "track health blood pressure  (Mycroft will prompt for 'Top', 'Bottom', 'For whom', 'confirm')"
+* "track health diabetes 5.7  (Mycroft will prompt for 'Before or after meal', 'For whom', 'Confirm')"
+* "track health temperature 99 (Mycroft will prompt for 'For whom', 'Confirm')"
+* "track health pain headache (Mycroft will prompt for 'For whom', 'Confirm')"
+* "track health heartbeat 75 (Mycroft will prompt for 'For whom', 'Confirm')"
+* "generate report for this month (Mycroft will prompt for 'Which category', 'For whom')"
 
-* Body Pain
-> track health pain headache
-For whom?
-> me
-Confirm?
-> yes
+## Credits
+S. M. Estiaque Ahmed (@smearumi)
 
-* Heartbeat
-> track health heartbeat 75
-For whom?
-> me
-Confirm?
-> yes
+## Category
+Daily
+**Information**
+Productivity
 
-* Generate report
-> generate report for this month
-Which catagory?
-> pain
-For whom?
-> me
+## Tags
+#mycroft
+#skill
+#health
+#medical
+#home
+#voice
+#assistant

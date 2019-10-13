@@ -1,0 +1,2 @@
+Heartbeat is: {{value}}. Say yes to confirm.
+Heart rate is: {{value}}.  Do you wish to say yes to confirm?

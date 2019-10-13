@@ -1,0 +1,3 @@
+(heartbeat|rate|sugar level|temperature|pain) (?P<Value>.*)
+(heart rate|sugar|temperature|pain) (?P<Value>.*)
+(heart beat|sugar|temperature|pain) (?P<Value>.*)

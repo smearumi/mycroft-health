@@ -229,9 +229,9 @@ class HealthSkill(MycroftSkill):
             self.speak_dialog("error.input.mh")
             return
 
-        catagory = self.get_response("catagory.mh")
+        category = self.get_response("category.mh")
 
-        if not catagory or catagory not in ["pressure", "diabetes", "pain",
+        if not category or category not in ["pressure", "diabetes", "pain",
                                             "temperature", "heartbeat"]:
             self.speak_dialog("error.input.mh")
             return
@@ -261,14 +261,14 @@ class HealthSkill(MycroftSkill):
                                         microsecond=0)
 
         health_data_list = self.get_data(from_datetime, to_datetime,
-                                         catagory, person)
+                                         category, person)
 
         health_data = []
 
         for data in health_data_list:
             health_data.append({
                             'Datetime': data[0].strftime("%m/%d/%Y %H:%M:%S"),
-                            'Catagory': data[1],
+                            'Category': data[1],
                             'Value': data[2],
                             'Parameter': data[3],
                             'Person': data[4]})
@@ -290,14 +290,14 @@ class HealthSkill(MycroftSkill):
                                 table)
 
         # self.send_email(
-        #             "Health Report - {0}".format(catagory.upper()),
+        #             "Health Report - {0}".format(category.upper()),
         #             content)
 
         # For test.
         message = Mail(
                 from_email="Mycroft Health <health@mycroft.ai>",
                 to_emails="smearumi@gmail.com",
-                subject="Mycroft Health Report - {0}".format(catagory.upper()),
+                subject="Mycroft Health Report - {0}".format(category.upper()),
                 html_content=content)
 
         api_key = "SG.yJSmPOSlR8CDxWrEiHtkiw.08p0jt2Isa_F9we0"
@@ -327,7 +327,7 @@ class HealthSkill(MycroftSkill):
             cursor = connection.cursor()
 
             sql = """CREATE TABLE health_data (datetime TIMESTAMP NOT NULL,
-                     catagory TEXT NOT NULL, value TEXT NOT NULL,
+                     category TEXT NOT NULL, value TEXT NOT NULL,
                      parameter TEXT, person TEXT)"""
 
             cursor.execute(sql)
@@ -359,15 +359,15 @@ class HealthSkill(MycroftSkill):
 
         return True
 
-    def get_data(self, from_datetime, to_datetime, catagory, person):
+    def get_data(self, from_datetime, to_datetime, category, person):
         connection = self.db_connect()
 
         if not connection:
             return
 
         sql = "SELECT * FROM health_data WHERE datetime > ? and datetime < ?"
-        sql = "{0} and catagory = ? and person = ?".format(sql)
-        data_tuple = (from_datetime, to_datetime, catagory, person)
+        sql = "{0} and category = ? and person = ?".format(sql)
+        data_tuple = (from_datetime, to_datetime, category, person)
 
         with connection:
             try:
